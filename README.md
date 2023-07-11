@@ -1,0 +1,1 @@
+Novelist is a CodeMonkeys project that aims to create a novel writing application that is easy to use and has a clean interface. It is currently in development and is not ready for use.

@@ -1,0 +1,46 @@
+################################################################################################
+####  MONKEY MANIFEST  #########################################################################
+###
+##    The Monkey Manifest houses centralized configuration of Automation profiles (monkeys).
+##
+##    Undefined props will default based on `monkey-config-defaults.yaml`.
+##    To unset a prop, set it to null.
+################################################################################################
+
+
+plan-novel:
+
+#  Target the overview directory, which should contain a single file with a general summary of the novel.
+#  Create a chapter-specific breakdown of a novel-writing plan.
+
+  # General
+  WORK_PATH: "ROOT_PATH/stor/work_path/lord_of_the_kush/overview"
+  FILE_TYPES_INCLUDED: ".txt"
+  FILEPATH_MATCH_INCLUDE: null
+  FILEPATH_MATCH_EXCLUDE: null
+  FILE_SELECT_MAX_TOKENS: 7000
+  MAX_TOKENS: 8000
+
+
+  # Main Prompts
+  MAIN_PROMPT: "Create an incredibly thorough, chapter-specific breakdown of a novel-writing plan. The plan should be complete for writing a novel that covers all major plot points of The Lord of the Rings. Your response should be no less than 7500 words."
+  MAIN_PROMPT_ULTIMATUM: "The novel-writing plan should be exhaustively complete, detailing all chapters necessary for the entire novel. You absolutely must include the details of every chapter, through the end, leaving nothing out. Exhaust 100% of the novel's plot points, and include enough context to write the novel cohesively."
+  OUTPUT_EXAMPLE_PROMPT: "Limit your output to the following format: ```Chapter n - Chapter 1 Name\ndetails...```."
+
+  # Context
+  CONTEXT_FILE_PATH: null
+  CONTEXT_SUMMARY_PROMPT: null
+
+  # Editor
+  EDITOR_PROMPT: 'The following is a novel-writing plan broken down by chapter. Your result should be absolutely the same content, except that there should be a [SPLIT] tag on its own line between each chapter.'
+  EDITOR_PROMPT_ULTIMATUM: 'Your response should include the exact content of the original file, with the addition of the [SPLIT] tags, and nothing more.'
+
+  # Output
+  OUTPUT_PATH: "ROOT_PATH/stor/work_path/lord_of_the_kush/chapter_plan"
+  OUTPUT_FILENAME_APPEND: '_plan'
+  OUTPUT_REMOVE_STRINGS: null
+  SKIP_EXISTING_OUTPUT_FILES: True
+
+  # Output Splitting
+  OUTPUT_SPLIT_PATH: "ROOT_PATH/stor/work_path/lord_of_the_kush/chapter_summaries"
+  OUTPUT_SPLIT_TAG: '[SPLIT]'
