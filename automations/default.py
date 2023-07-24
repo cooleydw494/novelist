@@ -6,8 +6,6 @@ from codemonkeys.base_entities.automation_class import Automation
 from codemonkeys.composables.output_checker import OutputChecker
 from codemonkeys.composables.output_path_resolver import OutputPathResolver
 from codemonkeys.utils.monk.theme_functions import print_t
-from codemonkeys.composables.file_handler import FileHandler
-from codemonkeys.composables.context_summarizer import ContextHandler
 
 
 class Default(Automation):
@@ -28,10 +26,10 @@ class Default(Automation):
             context = None
         else:
             context_handler = ContextHandler().context_file(mc.CONTEXT_FILE_PATH)
-            if mc.SUMMARY_PROMPT:
+            if mc.CONTEXT_SUMMARY_PROMPT:
                 context = (context_handler
                            .set_model(mc.SUMMARY_MODEL, mc.SUMMARY_TEMP, mc.MAX_TOKENS)
-                           .set_prompt(mc.SUMMARY_PROMPT)
+                           .set_prompt(mc.CONTEXT_SUMMARY_PROMPT)
                            .summarize())
             else:
                 context = context_handler.get_unsummarized_context()

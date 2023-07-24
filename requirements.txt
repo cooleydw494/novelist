@@ -1,2 +1,2 @@
-codemonkeys~=0.2.1
+codemonkeys==0.0.5
 python-dotenv~=1.0.0

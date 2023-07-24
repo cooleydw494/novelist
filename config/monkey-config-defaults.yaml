@@ -24,7 +24,6 @@ FILE_TYPES_INCLUDED: ".js,.vue,.php"
 FILEPATH_MATCH_INCLUDE: null
 FILEPATH_MATCH_EXCLUDE: ".config,.md,.git,migrations,vite,webpack,.txt"
 FILE_SELECT_MAX_TOKENS: 7000
-MAX_TOKENS: 8000
 
 
 # Main Prompts
@@ -33,8 +32,8 @@ MAIN_PROMPT_ULTIMATUM: "Limit your response to the full contents of a python scr
 OUTPUT_EXAMPLE_PROMPT: "Limit your output strictly to the contents of the file, like this: ```complete contents of file```."
 
 # Context / Summary
-# Note: Insert un-summarized context files into PROMPTs with {cop:<filepath>}
-CONTEXT_FILE_PATH: "ROOT_PATH/stor/context/novel-lord_of_the_kush.txt"
+# Note: Insert un-summarized context_string files into PROMPTs with {cop:<filepath>}
+CONTEXT_FILE_PATH: "ROOT_PATH/stor/context_string/context_string-file.txt"
 CONTEXT_SUMMARY_PROMPT: "Provide a summary of this file..."
 
 # Output Checks
@@ -45,22 +44,33 @@ OUTPUT_TRIES: 1
 OUTPUT_PATH: "ROOT_PATH/stor/output"
 OUTPUT_EXT: ".py"
 OUTPUT_FILENAME_APPEND: ""
-OUTPUT_SPLIT_TAG': null
 OUTPUT_REMOVE_STRINGS: "```,```python"
 SKIP_EXISTING_OUTPUT_FILES: True
 
 # Editor
+# Editor
 EDITOR_PROMPT: null
 EDITOR_PROMPT_ULTIMATUM: null
+
+# Output Splitting
+OUTPUT_SPLIT_PATH: null
+OUTPUT_SPLIT_TAG: '[SPLIT]'
+
+# Git Commit
+COMMIT_STYLE: null # null, 'gpt', 'static'
+STATIC_COMMIT_MESSAGE: 'File updated with CodeMonkeys'
 
 # Models
 MAIN_MODEL: 4
 SUMMARY_MODEL: 4
 OUTPUT_CHECK_MODEL: 3
-EDITOR_MODEL: 3
 
 # Temps
 MAIN_TEMP: 1.0
 SUMMARY_TEMP: 1.0
 OUTPUT_CHECK_TEMP: .5
-EDITOR_TEMP: .5
+
+# Max Tokens
+MAIN_MAX_TOKENS: 8000
+SUMMARY_MAX_TOKENS: 8000
+OUTPUT_CHECK_MAX_TOKENS: 8000
